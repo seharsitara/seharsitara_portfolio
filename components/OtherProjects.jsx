@@ -33,9 +33,9 @@ const OTHER_PROJECTS = [
 
 export default function OtherProjects() {
   return (
-    <section id="other-projects" className="mt-24 px-4 md:px-8 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-16">
+    <section id="other-projects" className="mt-24 px-8 md:px-12 lg:px-4 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-16">
       {/* Heading styled like Projects/About */}
-      <div className="flex items-center justify-center gap-4 mb-12">
+      <div className="flex items-center justify-center gap-4 mb-12 ">
         <span className="h-px w-16 md:w-24 bg-sky-300/70" />
         <h2 className="text-xl md:text-2xl font-semibold whitespace-nowrap text-white">
           Other Projects
