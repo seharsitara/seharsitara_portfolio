@@ -4,6 +4,9 @@ import SideNavbar from "./SideNavbar";
 import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";
+import OtherProjects from "./OtherProjects";
+import Contact from "./Contact";
+import Footer from "./Footer";
 
 export default function HomePage() {
   return (
@@ -11,7 +14,7 @@ export default function HomePage() {
       <SideNavbar />
 
       {/* Right Content */}
-      <main className="w-full max-w-screen-lg mx-auto px-4 md:px-8 lg:ml-64">
+      <main className="w-full max-w-screen-lg mx-auto px-4 md:px-8 lg:ml-64 mb-8">
         <section id="home" aria-labelledby="hero" className="min-h-screen flex flex-col justify-center  md:justify-center md:px-8 px-4">
           <h1 id="hero" className="text-4xl md:text-5xl font-semibold tracking-tight">
             Sehar Sitara
@@ -40,7 +43,9 @@ export default function HomePage() {
         <About />
         <Skills />
         <Projects />
-        <section id="contact" className="mt-24"></section>
+        <OtherProjects />
+        <Contact />
+        <Footer></Footer>
       </main>
     </div>
   );

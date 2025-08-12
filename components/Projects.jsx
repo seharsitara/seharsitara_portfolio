@@ -34,7 +34,7 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="mt-24 px-4 md:px-8">
+    <section id="projects" className="mt-24 px-4 md:px-8 scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-16 mb-32">
       {/* Heading exactly like About */}
       <div className="flex items-center justify-center gap-4 mb-6 lg:pt-32 md:pt-28 pt-24">
         <span className="h-px w-16 md:w-24 bg-sky-300/70" />
