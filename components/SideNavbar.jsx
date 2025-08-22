@@ -19,8 +19,31 @@ export default function SideNavbar() {
   const handleClick = useCallback((sectionId) => {
     setActiveId(sectionId);
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!section) return;
+
+    // Choose the scroll container if any; fallback to window
+    const scrollContainer = document.scrollingElement || document.documentElement;
+
+    const centerScroll = (el) => {
+      const rect = el.getBoundingClientRect();
+      const absoluteTop = rect.top + window.pageYOffset;
+      const elementHeight = rect.height || el.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      const topBarOffset = window.innerWidth < 1024 ? 64 : 0;
+      const targetY = Math.max(0, absoluteTop - (viewportHeight - elementHeight) / 2 - topBarOffset);
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    };
+
+    if (sectionId === "skills") {
+      centerScroll(section);
+    } else {
+      // Prefer native smooth scroll to top alignment
+      if ("scrollIntoView" in section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        const top = section.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
     }
   }, []);
 
@@ -98,8 +121,23 @@ export default function SideNavbar() {
         document.documentElement.style.overflow = originalHtmlOverflow;
         document.body.style.overflow = originalBodyOverflow;
       };
+    } else {
+      // Ensure scrolling is re-enabled when menu closes
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
     }
     return undefined;
+  }, [mobileOpen]);
+
+  // Auto-close mobile menu on resize to large screens
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [mobileOpen]);
 
   const baseItemClass =

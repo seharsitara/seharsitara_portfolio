@@ -6,7 +6,7 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import OtherProjects from "./OtherProjects";
 import Contact from "./Contact";
-import Footer from "./Footer";
+import Footer from "./Footer"
 
 export default function HomePage() {
   return (
@@ -14,15 +14,15 @@ export default function HomePage() {
       <SideNavbar />
 
       {/* Right Content */}
-      <main className="w-full max-w-screen-lg mx-auto px-4 md:px-8 lg:ml-64 mb-8">
-        <section id="home" aria-labelledby="hero" className="min-h-screen flex flex-col items-center text-center justify-center  md:justify-center md:px-8 px-4">
+      <main className="w-full max-w-screen-lg mx-auto px-4 md:px-8 lg:ml-64 overflow-y-auto">
+        <section id="home" aria-labelledby="hero" className="min-h-screen flex flex-col  items-start text-start justify-center  md:justify-center md:mx-18 lg:mx-24 mx-6 ">
           <h1 id="hero" className="text-4xl md:text-5xl font-semibold tracking-tight">
             Sehar Sitara
           </h1>
           <p className="mt-2 text-base md:text-lg font-bold text-sky-300/90 opacity-90">
             Junior Frontend developer
           </p>
-          <p className="mt-4 max-w-2xl text-center  font-extralight opacity-80
+          <p className="mt-4 max-w-2xl font-extralight opacity-80
             md:text-lg text-white/90">
             I’m a passionate frontend developer who creates clean, user-friendly web experiences, turning ideas into engaging digital products through modern tools and thoughtful design.
           </p>
@@ -45,7 +45,7 @@ export default function HomePage() {
         <Projects />
         <OtherProjects />
         <Contact />
-        <Footer></Footer>
+        <Footer/>
       </main>
     </div>
   );

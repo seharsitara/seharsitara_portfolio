@@ -30,6 +30,6 @@
 body {
   background: linear-gradient(90deg, var(--background-left), var(--background-right));
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-rubik);
   scroll-behavior: smooth;
 }
